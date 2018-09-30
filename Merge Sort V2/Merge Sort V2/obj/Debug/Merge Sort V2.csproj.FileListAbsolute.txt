@@ -1,7 +1,0 @@
-D:\RIT Machine Folder Work\GDAPS-1\Merge Sort V2\Merge Sort V2\bin\Debug\Merge Sort V2.exe.config
-D:\RIT Machine Folder Work\GDAPS-1\Merge Sort V2\Merge Sort V2\bin\Debug\Merge Sort V2.exe
-D:\RIT Machine Folder Work\GDAPS-1\Merge Sort V2\Merge Sort V2\bin\Debug\Merge Sort V2.pdb
-D:\RIT Machine Folder Work\GDAPS-1\Merge Sort V2\Merge Sort V2\obj\Debug\Merge Sort V2.csprojAssemblyReference.cache
-D:\RIT Machine Folder Work\GDAPS-1\Merge Sort V2\Merge Sort V2\obj\Debug\Merge Sort V2.csproj.CoreCompileInputs.cache
-D:\RIT Machine Folder Work\GDAPS-1\Merge Sort V2\Merge Sort V2\obj\Debug\Merge Sort V2.exe
-D:\RIT Machine Folder Work\GDAPS-1\Merge Sort V2\Merge Sort V2\obj\Debug\Merge Sort V2.pdb
