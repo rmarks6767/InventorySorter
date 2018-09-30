@@ -1,0 +1,7 @@
+C:\Users\river\source\repos\Merge Sort V3\Merge Sort V3\bin\Debug\Merge Sort V3.exe.config
+C:\Users\river\source\repos\Merge Sort V3\Merge Sort V3\bin\Debug\Merge Sort V3.exe
+C:\Users\river\source\repos\Merge Sort V3\Merge Sort V3\bin\Debug\Merge Sort V3.pdb
+C:\Users\river\source\repos\Merge Sort V3\Merge Sort V3\obj\Debug\Merge Sort V3.csprojAssemblyReference.cache
+C:\Users\river\source\repos\Merge Sort V3\Merge Sort V3\obj\Debug\Merge Sort V3.csproj.CoreCompileInputs.cache
+C:\Users\river\source\repos\Merge Sort V3\Merge Sort V3\obj\Debug\Merge Sort V3.exe
+C:\Users\river\source\repos\Merge Sort V3\Merge Sort V3\obj\Debug\Merge Sort V3.pdb
