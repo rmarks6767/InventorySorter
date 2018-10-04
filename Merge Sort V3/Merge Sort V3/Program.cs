@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,104 +10,102 @@ namespace Merge_Sort_V3
     {
         static void Main(string[] args)
         {
-            //Takes input from the user of how many numbers they would like to sort
-            Console.WriteLine("How many items would you like to analyze?");
-            int inputs = int.Parse(Console.ReadLine());
+            //Takes input from the user of how many items they would like to sort
+            Console.WriteLine("How many items are in your inventory?");
+            string input = Console.ReadLine();
+
+            int inputs = Int32.Parse(input);
             //initializes an array of numbers from the number of inputs received from the user
             string[] inventory = new string[inputs];
-            string[] sortedItems = new string[inputs];  //This array will be the place the final sorted values are stored
+            Console.Clear();
+            int total = inputs;
+            Console.WriteLine("Total Items in inventory: " + total);
+
+            Console.WriteLine();
 
             //collects the input from the user and sets it equal to the numbers array
             for (int i = 0; i < inputs; i++)
             {
-                Console.Clear();
-                Console.Write("Item " + i);
-                string entered = Console.ReadLine();
+                Console.Write("Item " + (i + 1) + ":");
+                string entered = Console.ReadLine().Trim();
                 inventory[i] = entered;
             }
-            sortedItems = MergeSort(inventory);
-
-            for (int f = 0; f < inventory.Length; f++)
-            {
-                Console.Write(sortedItems[f] + ", ");
-            }
-        }
-        public static string[] MergeSort(string[] inventory)
-        {
-            if (inventory.Length <= 1)
-            {
-                return inventory;
-            }
-
-            int middle = inventory.Length / 2;
-            string[] left = new string[middle];
-            string[] right = new string[middle];
-            if (inventory.Length % 2 == 0)
-            {
-                right = new string[middle];
-            }
-            else
-            {
-                right = new string[middle + 1];
-            }
-                for (int i = 0; i < middle; i++)
-            {
-                left[i] = inventory[i];
-            }
-            MergeSort(left);
-            int counter = 0;
-            for (int g = middle; g < inventory.Length; g++)
-            {
-                right[counter] = inventory[g];
-                counter++;
-            }
-            MergeSort(right);
+            Console.Clear();
+            int low = 0;
+            int high = inventory.Length - 1;
 
             
-            // numbers holds the array, start holds where the first array starts, middle holds its end, and middle + 1 is the start of right array
-            return Merge(inventory, left, right);
+            MergeSort(inventory, low, high, total);
+
+            Console.WriteLine("Your inventory sorted: ");
+            for (int f = 0; f < inventory.Length; f++)
+            {
+                Console.Write(inventory[f]);
+                if (f < inventory.Length - 1)
+                {
+                    Console.Write(", ");
+                }
+                else
+                {
+                    Console.WriteLine(".");
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine();
         }
-        private static string[] Merge(string[] inventory, string[] left, string[] right)
+        static void MergeSort(string[] inventory, int low, int high, int total)
         {
-            int counter = left.Length + right.Length;
+            int mid = (low + high) / 2;
 
-            int leftTotal = 0;
-            int rightTotal = 0;
+            if (low < high)
+            {
+                MergeSort(inventory, low, mid, total);
+                MergeSort(inventory, mid + 1, high, total);
 
-            for (int q = 0; q < counter; q++)
+                Merge(inventory, low, mid, high, total);
+            }
+            return;
+        }
+        private static void Merge(string[] inventory, int low, int mid, int high, int total)
+        {
+            string[] result = new string[total];
+            
+            int left = low;
+            int counter = low;
+            int right = mid + 1;
+
+            while(left <= mid && right <= high)
             {
-                if (leftTotal > left.Length)
+                if (string.Compare(inventory[left], inventory[right]) < 0)
                 {
-                    inventory[q] = right[leftTotal];
-                    leftTotal++;
+                    result[counter] = inventory[left];
+                    counter++;
+                    left++;
                 }
-                else if (rightTotal > right.Length)
+                else
                 {
-                    inventory[q] = left[rightTotal];
-                    rightTotal++;
+                    result[counter] = inventory[right];
+                    counter++;
+                    right++;
                 }
-            }
-            for (int g = 0; g < left.Length; g++)
+             }
+            while(left <= mid)
             {
-                inventory[g] = left[leftTotal];
-                leftTotal++;
+                result[counter] = inventory[left];
+                counter++;
+                left++;
             }
-            for (int g = 0; g < right.Length; g++)
+            while(right <= high)
             {
-                inventory[g] = right[rightTotal];
-                rightTotal++;
+                result[counter] = inventory[right];
+                counter++;
+                right++;
             }
-            /*if (string.Compare(left[0], right[0]) < 0)
+            for (int y = low; y < counter; y++)
             {
-                inventory[0] = left[leftTotal];
-                leftTotal++;
+                inventory[y] = result[y];
             }
-            else
-            {
-                inventory[0] = right[rightTotal];
-                rightTotal++;
-            }*/
-            return inventory;
+            return;
         }
     }
 }
